@@ -2,21 +2,21 @@
   "name": "@alex-arriaga/typescript-library-starter",
   "version": "1.0.0",
   "description": "A Typescript starter for building JavaScript libraries",
-  "main": "dist/main/index.js",
-  "typings": "dist/main/index.d.ts",
-  "module": "dist/module/index.js",
+  "main": "dist/cjs/index.js",
+  "typings": "dist/cjs/index.d.ts",
+  "module": "dist/esm/index.js",
   "scripts": {
     "build": "npm-run-all -p build:*",
-    "build:main": "tsc -p tsconfig.json",
-    "build:module": "tsc -p tsconfig.module.json",
-    "format": "prettier \"src/**/*.ts\" --write",
+    "build:cjs": "tsc -p tsconfig.json",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "format": "prettier 'src/**/*.ts' '*.js' --write",
     "lint": "eslint src --ext .ts",
-    "lint:fix": "eslint src --ext .ts --fix",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint:fix": "npm run lint -- --fix",
+    "test": "echo 'Error: no test specified' && exit 1"
   },
   "files": [
-    "dist/main",
-    "dist/module",
+    "dist/cjs",
+    "dist/esm",
     "!**/*.test.*",
     "!**/*.json",
     "README.md"
@@ -33,16 +33,14 @@
   "author": "Alex Arriaga <alex.arriaga@webtraining.world>",
   "license": "MIT",
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^4.13.0",
-    "@typescript-eslint/parser": "^4.13.0",
-    "eslint": "^7.17.0",
-    "eslint-config-prettier": "^7.1.0",
+    "@types/node": "^14.14.35",
+    "@typescript-eslint/eslint-plugin": "^4.18.0",
+    "@typescript-eslint/parser": "^4.18.0",
+    "eslint": "^7.22.0",
+    "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-prettier": "^3.3.1",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.2.1",
-    "typescript": "^4.1.3"
-  },
-  "dependencies": {
-    "@types/node": "^14.14.21"
+    "typescript": "^4.2.3"
   }
 }

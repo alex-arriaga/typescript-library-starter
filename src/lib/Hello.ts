@@ -1,11 +1,16 @@
 interface MyInterface {
-  hey(): string;
+  hey(): string
+}
+
+type MyType = {
+  myProp?: string
 }
 
 class MyConcreteClass implements MyInterface {
   public hey(): string {
-    return "Hello there!";
+    const text: MyType = { myProp: 'Sweet!' }
+    return `Hello there, ${text}`
   }
 }
 
-export default MyConcreteClass;
+export default MyConcreteClass
